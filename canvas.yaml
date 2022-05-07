@@ -1,0 +1,28 @@
+preset: package
+
+namespace: Dealskoo\Coupon
+user-auth-provider: App\User
+
+paths:
+  src: src
+  resource: resources
+
+factory:
+  path: database/factories
+  namespace: Database\Factories\Dealskoo\Coupon\Models
+
+migration:
+  path: database/migrations
+  prefix: ''
+
+console:
+  namespace: Dealskoo\Coupon\Console
+
+model:
+  namespace: Dealskoo\Coupon\Models
+
+provider:
+  namespace: Dealskoo\Coupon\Providers
+
+testing:
+  namespace: Dealskoo\Coupon\Tests
