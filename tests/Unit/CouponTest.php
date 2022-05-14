@@ -2,17 +2,10 @@
 
 namespace Dealskoo\Coupon\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Dealskoo\Coupon\Tests\TestCase;
 
 class CouponTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $this->assertTrue(true);
-    }
+    use RefreshDatabase;
 }
