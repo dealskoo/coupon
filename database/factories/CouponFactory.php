@@ -22,7 +22,39 @@ class CouponFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->title,
+            'slug' => $this->faker->slug,
+            'price' => $this->faker->numberBetween(0, $product->price),
+            'ship_fee' => $this->faker->numberBetween(0, 20),
+            'code' => $this->faker->slug,
+            'seller_id' => $product->seller_id,
+            'product_id' => $product->id,
+            'category_id' => $product->category_id,
+            'country_id' => $product->country_id,
+            'brand_id' => $product->brand_id,
+            'platform_id' => $product->platform_id,
+            'start_at' => $this->faker->dateTime,
+            'end_at' => $this->faker->dateTime,
         ];
+    }
+
+    public function approved()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'approved_at' => $this->faker->dateTime,
+            ];
+        });
+    }
+
+    public function avaiabled()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'start_at' => $this->faker->dateTimeBetween('-1 days'),
+                'end_at' => $this->faker->dateTimeBetween('now', '+7 days'),
+                'approved_at' => $this->faker->dateTime,
+            ];
+        });
     }
 }
