@@ -3,6 +3,7 @@
 namespace Database\Factories\Dealskoo\Coupon\Models;
 
 use Dealskoo\Coupon\Models\Coupon;
+use Dealskoo\Product\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CouponFactory extends Factory
@@ -21,6 +22,7 @@ class CouponFactory extends Factory
      */
     public function definition()
     {
+        $product = Product::factory()->approved()->create();
         return [
             'title' => $this->faker->title,
             'slug' => $this->faker->slug,
