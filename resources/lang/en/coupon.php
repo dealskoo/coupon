@@ -1,4 +1,30 @@
 <?php
 return [
-    'coupons' => 'Coupons'
+    'coupons' => 'Coupons',
+    'coupon' => 'Coupon',
+    'coupons_list' => 'Coupons List',
+    'id' => 'ID',
+    'title' => 'Title',
+    'price' => 'Price',
+    'ship_fee' => 'Ship Fee',
+    'code' => 'Code',
+    'seller' => 'Seller',
+    'product' => 'Product',
+    'category' => 'Category',
+    'country' => 'Country',
+    'brand' => 'Brand',
+    'platform' => 'Platform',
+    'approved_at' => 'Approved At',
+    'start_at' => 'Start At',
+    'end_at' => 'End At',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+    'action' => 'Action',
+    'add_coupon' => 'Add Coupon',
+    'edit_coupon' => 'Edit Coupon',
+    'view_coupon' => 'View Coupon',
+    'slug' => 'Slug',
+    'slug_placeholder' => 'Slug',
+    'product_price' => 'Product Price',
+    'approved' => 'Approved'
 ];
