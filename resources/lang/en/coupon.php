@@ -23,6 +23,7 @@ return [
     'add_coupon' => 'Add Coupon',
     'edit_coupon' => 'Edit Coupon',
     'view_coupon' => 'View Coupon',
+    'title_placeholder' => 'Title',
     'slug' => 'Slug',
     'slug_placeholder' => 'Slug',
     'product_price' => 'Product Price',
