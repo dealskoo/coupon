@@ -40,7 +40,7 @@ class CouponController extends SellerController
         foreach ($coupons as $coupon) {
             $row = [];
             $row[] = $coupon->id;
-            $row[] = $coupon->title . ' <span class="badge bg-success">' . $coupon->off . '% Off</span>';
+            $row[] = $coupon->title . ' <span class="badge bg-success">' . $coupon->off . '% ' . __('Off') . '</span>';
             $row[] = $coupon->country->currency_symbol . $coupon->price . ' <del>' . $coupon->country->currency_symbol . $coupon->product->price . '</del>';
             $row[] = $coupon->country->currency_symbol . $coupon->ship_fee;
             $row[] = $coupon->clicks;
