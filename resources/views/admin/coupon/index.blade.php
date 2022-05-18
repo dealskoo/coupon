@@ -28,6 +28,7 @@
                                 <th>{{ __('coupon::coupon.title') }}</th>
                                 <th>{{ __('coupon::coupon.price') }}</th>
                                 <th>{{ __('coupon::coupon.ship_fee') }}</th>
+                                <th>{{ __('coupon::coupon.clicks') }}</th>
                                 <th>{{ __('coupon::coupon.code') }}</th>
                                 <th>{{ __('coupon::coupon.seller') }}</th>
                                 <th>{{ __('coupon::coupon.product') }}</th>
@@ -78,12 +79,13 @@
                     {'orderable': true},
                     {'orderable': true},
                     {'orderable': true},
+                    {'orderable': true},
                     {'orderable': false},
                 ],
                 "order": [[0, "desc"]],
                 "drawCallback": function () {
                     $('.dataTables_paginate > .pagination').addClass('pagination-rounded');
-                    $('#coupons_table tr td:nth-child(17)').addClass('table-action');
+                    $('#coupons_table tr td:nth-child(18)').addClass('table-action');
                     delete_listener();
                 }
             });

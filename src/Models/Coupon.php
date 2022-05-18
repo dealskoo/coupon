@@ -28,6 +28,7 @@ class Coupon extends Model
         'slug',
         'price',
         'ship_fee',
+        'clicks',
         'code',
         'seller_id',
         'product_id',

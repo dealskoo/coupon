@@ -7,6 +7,7 @@ return [
     'title' => '标题',
     'price' => '价格',
     'ship_fee' => '运费',
+    'clicks' => '点击量',
     'code' => '优惠码',
     'seller' => '商家',
     'product' => '产品',

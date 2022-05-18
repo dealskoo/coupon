@@ -25,7 +25,7 @@ class CouponController extends SellerController
         $start = $request->input('start', 0);
         $limit = $request->input('length', 10);
         $keyword = $request->input('search.value');
-        $columns = ['id', 'title', 'price', 'ship_fee', 'code', 'product_id', 'category_id', 'country_id', 'brand_id', 'platform_id', 'approved_at', 'start_at', 'end_at', 'created_at', 'updated_at'];
+        $columns = ['id', 'title', 'price', 'ship_fee', 'clicks', 'code', 'product_id', 'category_id', 'country_id', 'brand_id', 'platform_id', 'approved_at', 'start_at', 'end_at', 'created_at', 'updated_at'];
         $column = $columns[$request->input('order.0.column', 0)];
         $desc = $request->input('order.0.dir', 'desc');
         $query = Coupon::query();
@@ -43,6 +43,7 @@ class CouponController extends SellerController
             $row[] = $coupon->title . ' <span class="badge bg-success">' . $coupon->off . '% Off</span>';
             $row[] = $coupon->price . ' <del>' . $coupon->product->price . '</del>';
             $row[] = $coupon->ship_fee;
+            $row[] = $coupon->clicks;
             $row[] = $coupon->code;
             $row[] = $coupon->product->name;
             $row[] = $coupon->category->name;
