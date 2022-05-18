@@ -3,6 +3,7 @@
 namespace Dealskoo\Coupon\Tests\Feature\Seller;
 
 use Carbon\Carbon;
+use Dealskoo\Country\Models\Country;
 use Dealskoo\Coupon\Models\Coupon;
 use Dealskoo\Product\Models\Product;
 use Dealskoo\Seller\Models\Seller;
@@ -31,6 +32,7 @@ class CouponControllerTest extends TestCase
 
     public function test_create()
     {
+        $country = Country::factory()->create(['alpha2' => 'US']);
         $seller = Seller::factory()->create();
         $response = $this->actingAs($seller, 'seller')->get(route('seller.coupons.create'));
         $response->assertStatus(200);
@@ -53,8 +55,9 @@ class CouponControllerTest extends TestCase
 
     public function test_edit()
     {
+        $country = Country::factory()->create(['alpha2' => 'US']);
         $seller = Seller::factory()->create();
-        $coupon = Coupon::factory()->create(['seller_id' => $seller->id]);
+        $coupon = Coupon::factory()->create(['seller_id' => $seller->id, 'country_id' => $country->id]);
         $response = $this->actingAs($seller, 'seller')->get(route('seller.coupons.edit', $coupon));
         $response->assertStatus(200);
     }
