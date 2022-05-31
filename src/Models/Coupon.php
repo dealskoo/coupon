@@ -14,10 +14,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 
 class Coupon extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug, HasCategory, HasCountry, HasSeller, HasBrand, HasPlatform, HasProduct;
+    use HasFactory, SoftDeletes, HasSlug, HasCategory, HasCountry, HasSeller, HasBrand, HasPlatform, HasProduct, Searchable;
 
     protected $appends = [
         'cover', 'cover_url', 'off'
@@ -73,5 +74,31 @@ class Coupon extends Model
     {
         $now = Carbon::now();
         return $builder->whereNotNull('approved_at')->where('start_at', '<=', $now)->where('end_at', '>=', $now);
+    }
+
+    public function shouldBeSearchable()
+    {
+        return $this->approved_at ? true : false;
+    }
+
+    public function toSearchableArray()
+    {
+        return $this->only([
+            'title',
+            'slug',
+            'price',
+            'ship_fee',
+            'clicks',
+            'code',
+            'seller_id',
+            'product_id',
+            'category_id',
+            'country_id',
+            'brand_id',
+            'platform_id',
+            'start_at',
+            'end_at',
+            'last_used_at'
+        ]);
     }
 }

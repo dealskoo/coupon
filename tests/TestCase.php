@@ -4,7 +4,7 @@ namespace Dealskoo\Coupon\Tests;
 
 use Dealskoo\Coupon\Providers\CouponServiceProvider;
 
-abstract class TestCase extends \Dealskoo\Seller\Tests\TestCase
+abstract class TestCase extends \Dealskoo\Billing\Tests\TestCase
 {
     protected function getPackageProviders($app)
     {
