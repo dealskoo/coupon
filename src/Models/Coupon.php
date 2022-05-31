@@ -38,13 +38,15 @@ class Coupon extends Model
         'platform_id',
         'approved_at',
         'start_at',
-        'end_at'
+        'end_at',
+        'last_used_at'
     ];
 
     protected $casts = [
         'approved_at' => 'datetime',
         'start_at' => 'datetime',
-        'end_at' => 'datetime'
+        'end_at' => 'datetime',
+        'last_used_at' => 'datetime'
     ];
 
     public function getCoverAttribute()

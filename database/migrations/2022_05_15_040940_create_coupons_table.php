@@ -30,6 +30,7 @@ class CreateCouponsTable extends Migration
             $table->timestamp('approved_at')->nullable();
             $table->timestamp('start_at');
             $table->timestamp('end_at');
+            $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('seller_id')->references('id')->on('sellers')->onUpdate('cascade')->onDelete('cascade');
