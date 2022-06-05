@@ -7,6 +7,7 @@ use Dealskoo\Admin\Http\Controllers\Controller as AdminController;
 use Dealskoo\Admin\Rules\Slug;
 use Dealskoo\Coupon\Models\Coupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CouponController extends AdminController
 {
@@ -42,7 +43,7 @@ class CouponController extends AdminController
         foreach ($coupons as $coupon) {
             $row = [];
             $row[] = $coupon->id;
-            $row[] = $coupon->title . ' <span class="badge bg-success">' . $coupon->off . '% ' . __('Off') . '</span>';
+            $row[] = Str::words($coupon->title, 5, '...') . ' <span class="badge bg-success">' . $coupon->off . '% ' . __('Off') . '</span>';
             $row[] = $coupon->country->currency_symbol . $coupon->price . ' <del>' . $coupon->country->currency_symbol . $coupon->product->price . '</del>';
             $row[] = $coupon->country->currency_symbol . $coupon->ship_fee;
             $row[] = $coupon->clicks;
