@@ -22,19 +22,30 @@ class CouponFactory extends Factory
      */
     public function definition()
     {
-        $product = Product::factory()->approved()->create();
         return [
             'title' => $this->faker->title,
             'slug' => $this->faker->slug,
-            'price' => $this->faker->numberBetween(0, $product->price),
             'ship_fee' => $this->faker->numberBetween(0, 20),
             'code' => $this->faker->slug,
-            'seller_id' => $product->seller_id,
-            'product_id' => $product->id,
-            'category_id' => $product->category_id,
-            'country_id' => $product->country_id,
-            'brand_id' => $product->brand_id,
-            'platform_id' => $product->platform_id,
+            'product_id' => Product::factory()->approved(),
+            'price' => function ($coupon) {
+                return $this->faker->numberBetween(0, Product::find($coupon['product_id'])->price);
+            },
+            'seller_id' => function ($coupon) {
+                return Product::find($coupon['product_id'])->seller_id;
+            },
+            'category_id' => function ($coupon) {
+                return Product::find($coupon['product_id'])->category_id;
+            },
+            'country_id' => function ($coupon) {
+                return Product::find($coupon['product_id'])->country_id;
+            },
+            'brand_id' => function ($coupon) {
+                return Product::find($coupon['product_id'])->brand_id;
+            },
+            'platform_id' => function ($coupon) {
+                return Product::find($coupon['product_id'])->platform_id;
+            },
             'start_at' => $this->faker->dateTime,
             'end_at' => $this->faker->dateTime,
         ];
