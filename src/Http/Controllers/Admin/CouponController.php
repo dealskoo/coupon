@@ -2,7 +2,6 @@
 
 namespace Dealskoo\Coupon\Http\Controllers\Admin;
 
-use Carbon\Carbon;
 use Dealskoo\Admin\Http\Controllers\Controller as AdminController;
 use Dealskoo\Admin\Rules\Slug;
 use Dealskoo\Coupon\Models\Coupon;
@@ -103,7 +102,7 @@ class CouponController extends AdminController
         $coupon->fill($request->only([
             'slug'
         ]));
-        $coupon->approved_at = $request->boolean('approved', false) ? Carbon::now() : null;
+        $coupon->approved_at = $request->boolean('approved', false) ? now() : null;
         $coupon->save();
         return back()->with('success', __('admin::admin.update_success'));
     }
