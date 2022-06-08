@@ -81,7 +81,7 @@
                                     - {{ __('coupon::coupon.end_at') }}</label>
                                 <input type="text" class="form-control date" id="activity_date" name="activity_date"
                                     data-toggle="date-picker"
-                                    value="{{ old('activity_date', \Carbon\Carbon::parse($coupon->start_at)->format('m/d/Y') . ' - ' . \Carbon\Carbon::parse($coupon->end_at)->format('m/d/Y')) }}"
+                                    value="{{ old('activity_date', $coupon->start_at->format('m/d/Y') . ' - ' . $coupon->end_at->format('m/d/Y')) }}"
                                     required tabindex="6">
                             </div>
                         </div> <!-- end row -->

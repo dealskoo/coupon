@@ -2,7 +2,6 @@
 
 namespace Dealskoo\Coupon\Http\Controllers\Seller;
 
-use Carbon\Carbon;
 use Dealskoo\Coupon\Models\Coupon;
 use Dealskoo\Product\Models\Product;
 use Dealskoo\Seller\Http\Controllers\Controller as SellerController;
@@ -51,11 +50,11 @@ class CouponController extends SellerController
             $row[] = $coupon->country->name;
             $row[] = $coupon->brand ? $coupon->brand->name : '';
             $row[] = $coupon->platform ? $coupon->platform->name : '';
-            $row[] = $coupon->approved_at != null ? Carbon::parse($coupon->approved_at)->format('Y-m-d H:i:s') : null;
-            $row[] = $coupon->start_at != null ? Carbon::parse($coupon->start_at)->format('Y-m-d') : null;
-            $row[] = $coupon->end_at != null ? Carbon::parse($coupon->end_at)->format('Y-m-d') : null;
-            $row[] = Carbon::parse($coupon->created_at)->format('Y-m-d H:i:s');
-            $row[] = Carbon::parse($coupon->updated_at)->format('Y-m-d H:i:s');
+            $row[] = $coupon->approved_at != null ? $coupon->approved_at->format('Y-m-d H:i:s') : null;
+            $row[] = $coupon->start_at != null ? $coupon->start_at->format('Y-m-d') : null;
+            $row[] = $coupon->end_at != null ? $coupon->end_at->format('Y-m-d') : null;
+            $row[] = $coupon->created_at->format('Y-m-d H:i:s');
+            $row[] = $coupon->updated_at->format('Y-m-d H:i:s');
             $edit_link = '';
             $destroy_link = '';
             if ($coupon->approved_at == null) {

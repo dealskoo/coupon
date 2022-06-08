@@ -114,7 +114,7 @@
                                 <label for="activity_date" class="form-label">{{ __('coupon::coupon.start_at') }}
                                     - {{ __('coupon::coupon.end_at') }}</label>
                                 <input type="text" class="form-control date" id="activity_date" name="activity_date"
-                                    value="{{ \Carbon\Carbon::parse($coupon->start_at)->format('m/d/Y') . ' - ' . \Carbon\Carbon::parse($coupon->end_at)->format('m/d/Y') }}"
+                                    value="{{ $coupon->start_at->format('m/d/Y') . ' - ' . $coupon->end_at->format('m/d/Y') }}"
                                     readonly>
                             </div>
                             <div class="col-md-6 mb-3 mt-3">

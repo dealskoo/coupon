@@ -2,7 +2,6 @@
 
 namespace Dealskoo\Coupon\Tests\Feature\Seller;
 
-use Carbon\Carbon;
 use Dealskoo\Country\Models\Country;
 use Dealskoo\Coupon\Models\Coupon;
 use Dealskoo\Product\Models\Product;
@@ -49,7 +48,7 @@ class CouponControllerTest extends TestCase
             'price',
             'product_id',
             'ship_fee'
-        ]), ['activity_date' => Carbon::parse($coupon->start_at)->format('m/d/Y') . ' - ' . Carbon::parse($coupon->end_at)->format('m/d/Y')]]));
+        ]), ['activity_date' => $coupon->start_at->format('m/d/Y') . ' - ' . $coupon->end_at->format('m/d/Y')]]));
         $response->assertStatus(302);
     }
 
