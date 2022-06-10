@@ -45,9 +45,12 @@
         "dealskoo/brand": "dev-master",
         "dealskoo/category": "dev-master",
         "dealskoo/country": "dev-master",
+        "dealskoo/favorite": "dev-master",
+        "dealskoo/like": "dev-master",
         "dealskoo/platform": "dev-master",
         "dealskoo/product": "dev-master",
         "dealskoo/seller": "dev-master",
+        "dealskoo/thumb": "dev-master",
         "laravel/framework": ">=7.20",
         "laravel/scout": "^9.4"
     },
