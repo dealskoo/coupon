@@ -42,7 +42,7 @@ class CouponController extends AdminController
         foreach ($coupons as $coupon) {
             $row = [];
             $row[] = $coupon->id;
-            $row[] = Str::words($coupon->title, 5, '...') . ' <span class="badge bg-success">' . $coupon->off . '% ' . __('Off') . '</span>';
+            $row[] = Str::words($coupon->title, 5, '...') . ' <span class="badge bg-success">' . __(':off% OFF', ['off' => $coupon->off]) . '</span>';
             $row[] = $coupon->country->currency_symbol . $coupon->price . ' <del>' . $coupon->country->currency_symbol . $coupon->product->price . '</del>';
             $row[] = $coupon->country->currency_symbol . $coupon->ship_fee;
             $row[] = $coupon->clicks;
